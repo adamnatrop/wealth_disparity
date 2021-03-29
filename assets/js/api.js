@@ -11,7 +11,7 @@ function apiStateCall(stateCodeInput){
 
         // first api call to retreive state legislators list
         $.ajax({
-            url: `https://www.opensecrets.org/api/?method=getLegislators&id=${stateCodeInput}&output=json&apikey=20c6695ce98f31dce7ed360de7c4376d`,
+            url: `https://www.opensecrets.org/api/?method=getLegislators&id=${stateCodeInput}&output=json&apikey=${apiKey}`,
             method: 'GET',
         })
         
@@ -34,7 +34,7 @@ function apiCidCall(cidUserInput, nameUserInput){
 
     // send second API call using user selected legislators CID number to gather financial networth data
     $.ajax({
-        url: `https://www.opensecrets.org/api/?method=memPFDprofile&year=2016&cid=${cidUserInput}&output=xml&apikey=20c6695ce98f31dce7ed360de7c4376d`,
+        url: `https://www.opensecrets.org/api/?method=memPFDprofile&year=2016&cid=${cidUserInput}&output=xml&apikey=${apiKey}`,
         method: 'GET',
     }).then(function(xml){
         // function to convert xml response data to jquery object
